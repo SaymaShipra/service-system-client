@@ -201,7 +201,34 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 tex-lg font-semibold" : "text-gray-500"
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 tex-lg font-semibold" : "text-gray-500"
+          }
+          to="/services"
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 tex-lg font-semibold" : "text-gray-500"
+          }
+          to="/AddService"
+        >
+          Add Service
+        </NavLink>
       </li>
     </>
   );
@@ -245,17 +272,65 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button onClick={handleSignOut} className="btn">
-            Sign Out
-          </button>
+          <div className="dropdown dropdown-end">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost flex items-center gap-2"
+            >
+              <div className="text-right hidden sm:block"></div>
+              <img
+                src={
+                  user.photoURL ||
+                  +encodeURIComponent(user?.displayName || "User")
+                }
+                alt="User"
+                className="w-8 h-8 rounded-full border-2 border-green-600"
+              />
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-60"
+            >
+              <div className="border-b-1 border-gray-200 pb-4 pt-4">
+                <h1 className="text-lg font-bold text-gray-700">
+                  {user.displayName || "User"}
+                </h1>
+                <p>{user.email || "User"}</p>
+              </div>
+
+              <li>
+                <NavLink to="/addService" className="text-base">
+                  Add Service
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/myServices" className="text-base">
+                  My Services
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/myService" className="text-base">
+                  My Reviews
+                </NavLink>
+              </li>
+              <li>
+                <button onClick={handleSignOut} className="btn">
+                  Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
         ) : (
           <>
-            <NavLink className="btn" to="/register">
-              Register
-            </NavLink>
-            <NavLink className="btn" to="signIn">
-              Sign In
-            </NavLink>
+            <div className="flex gap-4">
+              <NavLink className="btn btn-primary" to="/register">
+                Register
+              </NavLink>
+              <NavLink className="btn btn-primary" to="signIn">
+                Sign In
+              </NavLink>
+            </div>
           </>
         )}
       </div>

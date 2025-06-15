@@ -64,7 +64,7 @@ const Banner = () => {
           </h2>
           <p className="text-xl mb-6">{slides[currentSlide].description}</p>
           <div className="flex justify-center gap-4">
-            <Link to="/service">
+            <Link to="/services">
               <button className="btn bg-blue-500 text-white hover:bg-gray-200 text-lg">
                 Explore Service <FaArrowRight />
               </button>
