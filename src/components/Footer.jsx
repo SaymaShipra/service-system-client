@@ -74,7 +74,7 @@ const Footer = () => {
               </li>
               <li className="text-lg">
                 <NavLink
-                  to="/allRecipes"
+                  to="/services"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-gray-500"
                   }
@@ -84,7 +84,7 @@ const Footer = () => {
               </li>
               <li className="text-lg">
                 <NavLink
-                  to="/addRecipe"
+                  to="/addService"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-gray-500"
                   }
@@ -94,7 +94,7 @@ const Footer = () => {
               </li>
               <li className="text-lg">
                 <NavLink
-                  to="/myRecipes"
+                  to="/aboutUs"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-gray-500"
                   }
@@ -104,7 +104,7 @@ const Footer = () => {
               </li>
               <li className="text-lg">
                 <NavLink
-                  to="/myRecipes"
+                  to="/contact"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-gray-500"
                   }
