@@ -26,7 +26,9 @@ const Services = () => {
       try {
         // Prepare promises for all review fetches
         const promises = services.map((service) =>
-          fetch(`http://localhost:3000/reviews/${service._id}`)
+          fetch(
+            `https://service-system-server.vercel.app/reviews/${service._id}`
+          )
             .then((res) => res.json())
             .then((reviews) => {
               if (!reviews.length) return { serviceId: service._id, avg: 0 };
@@ -102,7 +104,7 @@ const Services = () => {
 
       {/* Loading indicator */}
       {loadingRatings && (
-        <p className="text-center text-lg py-10">Loading ratings...</p>
+        <p className="text-center text-lg py-10">Loading services...</p>
       )}
 
       {/* Services Grid */}

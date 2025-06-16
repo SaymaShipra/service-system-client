@@ -23,7 +23,7 @@
 //     newService.userEmail = user?.email || "anonymous@example.com";
 //     newService.date = currentDate; // ✅ Add formatted date
 
-//     fetch("http://localhost:3000/services", {
+//     fetch("https://service-system-server.vercel.app/services", {
 //       method: "POST",
 //       headers: {
 //         "content-type": "application/json",
@@ -199,7 +199,7 @@ const AddService = () => {
     newService.userEmail = user?.email || "anonymous@example.com";
     newService.date = currentDate;
 
-    fetch("http://localhost:3000/services", {
+    fetch("https://service-system-server.vercel.app/services", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newService),

@@ -1,62 +1,77 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import Register from "../Register/Register";
 import SignIn from "../SignIn/SignIn";
-
 import Services from "../pages/Services";
 import ServiceDetails from "../pages/ServiceDetails";
 import AddService from "../pages/AddService";
 import MyServices from "../pages/MyServices";
 import UpdateService from "../components/UpdateService";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: RootLayout,
+    element: <RootLayout />,
     children: [
       {
         index: true,
-        Component: Home,
+        element: <Home />,
       },
       {
         path: "/register",
-        Component: Register,
+        element: <Register />,
       },
       {
         path: "/signin",
-        Component: SignIn,
+        element: <SignIn />,
       },
-
       {
         path: "/addService",
-        Component: AddService,
+        element: (
+          <PrivateRoute>
+            <AddService />
+          </PrivateRoute>
+        ),
       },
-      {
-        path: "services",
-        loader: () => fetch("http://localhost:3000/services"),
-        Component: Services,
-      },
-      {
-        path: "services/:id",
-        Component: ServiceDetails,
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/services/${params.id}`),
-      },
-
       {
         path: "/myServices",
-        Component: MyServices,
+        element: (
+          <PrivateRoute>
+            <MyServices />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateService/:id",
-        element: <UpdateService />,
-        loader: async ({ params }) => {
-          const res = await fetch(
-            `http://localhost:3000/services/${params.id}`
-          );
-          return res.json();
-        },
+        element: (
+          <PrivateRoute>
+            <UpdateService />
+          </PrivateRoute>
+        ),
+        loader: async ({ params }) =>
+          fetch(
+            `https://service-system-server.vercel.app/services/${params.id}`
+          ).then((res) => res.json()),
+      },
+      {
+        path: "services",
+        loader: () =>
+          fetch("https://service-system-server.vercel.app/services"),
+        element: (
+          <PrivateRoute>
+            <Services />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "services/:id",
+        element: <ServiceDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `https://service-system-server.vercel.app/services/${params.id}`
+          ),
       },
     ],
   },

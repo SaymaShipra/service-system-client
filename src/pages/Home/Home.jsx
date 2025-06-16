@@ -7,7 +7,7 @@
 // import Service from "../Service";
 
 // const Home = () => {
-//   const servicesPromise = fetch("http://localhost:3000/services").then((res) =>
+//   const servicesPromise = fetch("https://service-system-server.vercel.app/services").then((res) =>
 //     res.json()
 //   );
 //   return (
@@ -30,27 +30,13 @@ import Stat from "../../components/Stat";
 import Choose from "../../components/Choose";
 import Partners from "../../components/Partners";
 import Service from "../Services";
+import FeaturedServices from "../../components/FeaturedServices";
 
 const Home = () => {
-  // const [services, setServices] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/services")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setServices(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching services:", error);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
   return (
     <div>
       <Banner />
+      <FeaturedServices />
       {/* <Service services={services} loading={loading} /> */}
       <Stat />
       <Partners />

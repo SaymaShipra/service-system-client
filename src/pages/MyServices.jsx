@@ -13,7 +13,9 @@ const MyServices = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myServices?userEmail=${user.email}`)
+      fetch(
+        `https://service-system-server.vercel.app/myServices?userEmail=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setMyServices(data))
         .catch((error) => {
@@ -34,7 +36,7 @@ const MyServices = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/services/${_id}`, {
+        fetch(`https://service-system-server.vercel.app/services/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

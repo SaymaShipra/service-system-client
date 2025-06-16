@@ -11,7 +11,7 @@ const UpdateService = ({ service, onClose, onUpdate }) => {
     const formData = new FormData(form);
     const updatedService = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/services/${_id}`, {
+    fetch(`https://service-system-server.vercel.app/services/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
