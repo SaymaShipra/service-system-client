@@ -4,11 +4,12 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import Swal from "sweetalert2";
-import { NavLink } from "react-router";
+import UpdateService from "../components/UpdateService";
 
 const MyServices = () => {
   const { user, loading } = useContext(AuthContext);
   const [myServices, setMyServices] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
 
   useEffect(() => {
     if (user?.email) {
@@ -21,22 +22,6 @@ const MyServices = () => {
         });
     }
   }, [user]);
-
-  if (loading) {
-    return (
-      <p className="text-center py-20 text-xl font-semibold">
-        Loading services...
-      </p>
-    );
-  }
-
-  if (!myServices.length) {
-    return (
-      <p className="text-center py-20 text-xl font-semibold">
-        You haven't added any services yet.
-      </p>
-    );
-  }
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -55,14 +40,42 @@ const MyServices = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              Swal.fire("Deleted!", "Your recipe has been deleted.", "success");
-              const remainingRecipes = myServices.filter((r) => r._id !== _id);
-              setMyServices(remainingRecipes);
+              Swal.fire(
+                "Deleted!",
+                "Your service has been deleted.",
+                "success"
+              );
+              const remaining = myServices.filter((r) => r._id !== _id);
+              setMyServices(remaining);
             }
           });
       }
     });
   };
+
+  const handleUpdate = (updatedService) => {
+    setMyServices((prev) =>
+      prev.map((item) =>
+        item._id === selectedService._id ? { ...item, ...updatedService } : item
+      )
+    );
+  };
+
+  if (loading) {
+    return (
+      <p className="text-center py-20 text-xl font-semibold">
+        Loading services...
+      </p>
+    );
+  }
+
+  if (!myServices.length) {
+    return (
+      <p className="text-center py-20 text-xl font-semibold">
+        You haven't added any services yet.
+      </p>
+    );
+  }
 
   return (
     <div className="w-11/12 mx-auto mt-30 mb-30 p-5 card bg-base-100 shadow-md">
@@ -99,21 +112,26 @@ const MyServices = () => {
                     </div>
                   </div>
                 </td>
-                <td className="badge rounded-full badge-sm  bg-purple-200 px-3 text-primary">
+                <td className="badge rounded-full badge-sm bg-purple-200 px-3 text-primary">
                   {service.category}
                 </td>
                 <td className="text-blue-500 font-bold">{service.price}</td>
                 <td>{service.company}</td>
                 <td>{service.date}</td>
-                <td className="gap-2 flex ">
+                <td className="gap-2 flex">
                   <button className="btn btn-sm btn-outline text-lg">
                     <LuEye />
                   </button>
-                  <NavLink to={`/updateService/${service._id}`}>
-                    <button className="btn btn-sm btn-outline text-lg">
-                      <FaRegEdit />
-                    </button>
-                  </NavLink>
+
+                  <button
+                    className="btn btn-sm btn-outline text-lg"
+                    onClick={() => {
+                      setSelectedService(service);
+                      document.getElementById("update_modal").showModal();
+                    }}
+                  >
+                    <FaRegEdit />
+                  </button>
 
                   <button
                     onClick={() => handleDelete(service._id)}
@@ -127,6 +145,22 @@ const MyServices = () => {
           </tbody>
         </table>
       </div>
+
+      {/* Modal */}
+      <dialog id="update_modal" className="modal modal-bottom sm:modal-middle ">
+        <div className="modal-box ">
+          {selectedService && (
+            <UpdateService
+              service={selectedService}
+              onClose={() => {
+                document.getElementById("update_modal").close();
+                setSelectedService(null);
+              }}
+              onUpdate={handleUpdate}
+            />
+          )}
+        </div>
+      </dialog>
     </div>
   );
 };
