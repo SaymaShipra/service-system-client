@@ -27,11 +27,14 @@ const SignIn = () => {
       });
   };
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 min-h-screen ">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
           <div className="card-body">
-            <h1 className="text-5xl font-bold">Sign In now!</h1>
+            <h1 className="text-5xl font-bold text-center">Welcome Back</h1>
+            <p className="text-center text-gray-600">
+              Sign in to your account to continue
+            </p>
             <form onSubmit={handleSignIn}>
               <label className="label">Email</label>
               <input
