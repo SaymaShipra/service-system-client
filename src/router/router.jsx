@@ -9,6 +9,7 @@ import AddService from "../pages/AddService";
 import MyServices from "../pages/MyServices";
 import UpdateService from "../components/UpdateService";
 import PrivateRoute from "./PrivateRoute";
+import MyReviews from "../pages/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
+
         element: <Register />,
       },
       {
@@ -37,6 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myServices",
+
         element: (
           <PrivateRoute>
             <MyServices />
@@ -72,6 +75,14 @@ const router = createBrowserRouter([
           fetch(
             `https://service-system-server.vercel.app/services/${params.id}`
           ),
+      },
+      {
+        path: "/myReviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews />
+          </PrivateRoute>
+        ),
       },
     ],
   },
