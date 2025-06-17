@@ -11,15 +11,22 @@ const ServiceDetails = () => {
     image,
     company,
     website,
+
     price,
-  } = useLoaderData();
+  } = useLoaderData(); // Make sure your loader returns website and email
+
   const { user } = useContext(AuthContext);
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
 
-  // Load reviews from DB
+  const currentDate = new Date().toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+  // Load reviews
   useEffect(() => {
     fetch(`https://service-system-server.vercel.app/reviews/${serviceId}`)
       .then((res) => res.json())
@@ -73,11 +80,34 @@ const ServiceDetails = () => {
           src={image}
           alt={title}
         />
-        <div className="flex justify-between p-5 pt-7">
+        <div className="flex justify-between p-5 pt-7 flex-col md:flex-row gap-5">
           <div>
             <h2 className="text-xl md:text-5xl font-semibold pb-5">{title}</h2>
             <p className="text-gray-600 text-lg md:text-xl">{description}</p>
-            <p>{website}</p>
+            <div className="pt-4">
+              {website && (
+                <p className="font-semibold">
+                  Website:{" "}
+                  <a
+                    href={website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline"
+                  >
+                    {website}
+                  </a>
+                </p>
+              )}
+              <h3 className=" font-bold pt-2">
+                Provider Email:{" "}
+                <span className="font-medium text-gray-600">
+                  {user?.email || "anonymous@example.com"}
+                </span>
+              </h3>
+              <h3>
+                Added Date: <span className="font-medium">{currentDate}</span>
+              </h3>
+            </div>
           </div>
           <div className="text-xl text-right">
             <h3 className="text-blue-500 font-bold text-xl md:text-3xl pb-2">
@@ -155,7 +185,7 @@ const ServiceDetails = () => {
               className="card bg-base-100 shadow-md w-full p-5 mb-4"
             >
               <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-full  border-2 border-blue-600 flex items-center justify-center overflow-hidden bg-blue-500 text-white font-bold text-lg">
+                <div className="h-12 w-12 rounded-full border-2 border-blue-600 flex items-center justify-center overflow-hidden bg-blue-500 text-white font-bold text-lg">
                   {rev.avatar ? (
                     <img
                       src={rev.avatar}
