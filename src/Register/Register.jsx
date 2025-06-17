@@ -107,7 +107,7 @@ const Register = () => {
                 </div> */}
               <NavLink to="/signIn">
                 {" "}
-                <button className="btn btn-neutral mt-4 w-full">
+                <button className="btn text-white bg-blue-400 mt-4 w-full">
                   Register
                 </button>
               </NavLink>
