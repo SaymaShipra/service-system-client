@@ -102,12 +102,9 @@ const Register = () => {
                 </a>
               </div>
 
-              {/* <div>
-                  <a className="link link-hover">Forgot password?</a>
-                </div> */}
               <NavLink to="/signin">
                 {" "}
-                <button className="btn text-white bg-blue-400 mt-4 w-full">
+                <button className="btn text-white bg-blue-400 mt-4 w-full transition-all duration-200 hover:shadow-md">
                   Register
                 </button>
               </NavLink>

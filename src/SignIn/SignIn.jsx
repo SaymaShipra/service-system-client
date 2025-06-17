@@ -50,7 +50,7 @@ const SignIn = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn text-white bg-blue-400 mt-4 w-full">
+              <button className="btn text-white bg-blue-400 mt-4 w-full  transition-all duration-200 hover:shadow-md">
                 Sign In
               </button>
             </form>

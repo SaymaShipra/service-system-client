@@ -28,7 +28,7 @@ const ServiceCard = ({ service, rating }) => {
   const displayRating = rate.toFixed(1);
 
   return (
-    <div className="card bg-base-100 shadow-md w-full relative">
+    <div className="card bg-base-100 shadow-md w-full relative overflow-hidden hover:shadow-lg transition-shadow">
       <figure>
         <img src={image} alt={title} className="h-48 w-full object-cover" />
         <p className="badge px-4 badge-primary absolute top-2 right-2">
