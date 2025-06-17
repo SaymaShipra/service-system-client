@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
 import ServiceCard from "../components/ServiceCard";
+import { Spinner } from "@material-tailwind/react";
 
 const Services = () => {
   const services = useLoaderData();
@@ -104,8 +105,9 @@ const Services = () => {
 
       {/* Loading indicator */}
       {loadingRatings && (
-        <p className="text-center text-lg py-10">
-          <span className="loading loading-spinner loading-md"></span>
+        <p className="text-center text-lg py-10 ">
+          {/* <span className="loading loading-spinner loading-md"></span> */}
+          <Spinner className="" />
         </p>
       )}
 

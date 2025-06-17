@@ -20,8 +20,28 @@ const FeaturedServices = () => {
           Discover top-rated services from our trusted community of providers
         </p>
       </div>
-      <h2 className="text-3xl font-bold mb-4 flex items-center gap-5 pb-5">
-        Top Rated Services <IoMdArrowForward />
+      <h2 className="text-3xl font-bold mb-4 flex items-center gap-3 pb-5">
+        Top Rated Services
+        <span>
+          {" "}
+          <svg
+            className="w-8 h-10 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 12H5m14 0-4 4m4-4-4-4"
+            />
+          </svg>
+        </span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {topServices.map((service) => (

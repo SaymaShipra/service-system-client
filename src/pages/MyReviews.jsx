@@ -12,14 +12,16 @@ const MyReviews = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myReviews?email=${user.email}`)
+      fetch(
+        `https://service-system-server.vercel.app/myReviews?email=${user.email}`
+      )
         .then((res) => res.json())
         .then(async (data) => {
           // For each review, fetch the service title using serviceId
           const updated = await Promise.all(
             data.map(async (review) => {
               const res = await fetch(
-                `http://localhost:3000/services/${review.serviceId}`
+                `https://service-system-server.vercel.app/services/${review.serviceId}`
               );
               const service = await res.json();
               return { ...review, serviceTitle: service.title };
@@ -39,7 +41,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/reviews/${id}`, {
+        fetch(`https://service-system-server.vercel.app/reviews/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -59,13 +61,16 @@ const MyReviews = () => {
   };
 
   const handleUpdate = () => {
-    fetch(`http://localhost:3000/reviews/${editingReview._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ comment: updatedComment }),
-    })
+    fetch(
+      `https://service-system-server.vercel.app/reviews/${editingReview._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comment: updatedComment }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

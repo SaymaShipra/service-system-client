@@ -29,13 +29,6 @@ const SignIn = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        {/* <div className="text-center lg:text-left">
-          <Lottie
-            style={{ width: "300px" }}
-            animationData={signInLottie}
-            loop={true}
-          />
-        </div> */}
         <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
           <div className="card-body">
             <h1 className="text-5xl font-bold">Sign In now!</h1>

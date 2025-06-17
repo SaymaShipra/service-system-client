@@ -10,6 +10,7 @@ const ServiceDetails = () => {
     description,
     image,
     company,
+    website,
     price,
   } = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -76,6 +77,7 @@ const ServiceDetails = () => {
           <div>
             <h2 className="text-xl md:text-5xl font-semibold pb-5">{title}</h2>
             <p className="text-gray-600 text-lg md:text-xl">{description}</p>
+            <p>{website}</p>
           </div>
           <div className="text-xl text-right">
             <h3 className="text-blue-500 font-bold text-xl md:text-3xl pb-2">

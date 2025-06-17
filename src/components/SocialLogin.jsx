@@ -48,7 +48,7 @@ const SocialLogin = ({ from }) => {
             ></path>
           </g>
         </svg>
-        Login with Google
+        Sign In with Google
       </button>
     </div>
   );
