@@ -10,6 +10,7 @@ import MyServices from "../pages/MyServices";
 import UpdateService from "../components/UpdateService";
 import PrivateRoute from "./PrivateRoute";
 import MyReviews from "../pages/MyReviews";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-
         element: <Register />,
       },
       {
@@ -39,7 +39,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/myServices",
-
         element: (
           <PrivateRoute>
             <MyServices />
@@ -83,6 +82,11 @@ const router = createBrowserRouter([
             <MyReviews />
           </PrivateRoute>
         ),
+      },
+      // <-- Add this NotFound route LAST:
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

@@ -1,12 +1,30 @@
-# React + Vite
+# MyReviews App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
 
-Currently, two official plugins are available:
+MyReviews is a React-based application that allows users to view, edit, and delete their service reviews. It integrates with a backend API to fetch user reviews and service details, providing a seamless experience to manage feedback on services they have used.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live URL
 
-## Expanding the ESLint configuration
+Live url: https://service-system-3e0ab.web.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+_(Replace with your actual deployed URL)_
+
+## Key Features
+
+- User authentication with context integration.
+- Fetch and display reviews submitted by the logged-in user.
+- Display associated service title for each review by fetching service details via `serviceId`.
+- Edit and update reviews with a modal interface.
+- Delete reviews with confirmation dialog using SweetAlert2.
+- Responsive design with Tailwind CSS utility classes.
+- Star rating display using react-icons.
+
+## npm Packages Used
+
+- **react** — Frontend UI library
+- **react-icons** — For star rating icons (FaStar)
+- **sweetalert2** — For elegant confirmation and alert dialogs
+- **tailwindcss** — Utility-first CSS framework for styling
+
+---

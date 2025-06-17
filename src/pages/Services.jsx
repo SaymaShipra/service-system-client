@@ -104,7 +104,9 @@ const Services = () => {
 
       {/* Loading indicator */}
       {loadingRatings && (
-        <p className="text-center text-lg py-10">Loading services...</p>
+        <p className="text-center text-lg py-10">
+          <span className="loading loading-spinner loading-md"></span>
+        </p>
       )}
 
       {/* Services Grid */}
