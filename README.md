@@ -1,8 +1,8 @@
-# MyReviews App
+# ServiceHub App
 
 ## Purpose
 
-MyReviews is a React-based application that allows users to view, edit, and delete their service reviews. It integrates with a backend API to fetch user reviews and service details, providing a seamless experience to manage feedback on services they have used.
+ServiceHub is a React-based application that allows users to view, edit, and delete their service reviews. It integrates with a backend API to fetch user reviews and service details, providing a seamless experience to manage feedback on services they have used.
 
 ## Live URL
 
