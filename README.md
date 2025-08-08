@@ -8,7 +8,7 @@ MyReviews is a React-based application that allows users to view, edit, and dele
 
 Live url: https://service-system-3e0ab.web.app/
 
-_(Replace with your actual deployed URL)_
+<img src="https://i.ibb.co.com/5X96FPX7/Screenshot-2025-08-08-174931.png">
 
 ## Key Features
 
