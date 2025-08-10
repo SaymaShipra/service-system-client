@@ -191,7 +191,7 @@ const Navbar = () => {
             <NavLink className="btn btn-primary" to="/register">
               Register
             </NavLink>
-            <NavLink className="btn btn-primary" to="/signIn">
+            <NavLink className="btn btn-dash btn-primary" to="/signIn">
               Sign In
             </NavLink>
           </div>
