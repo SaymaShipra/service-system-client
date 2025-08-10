@@ -3,9 +3,12 @@ import { Link, NavLink } from "react-router"; // Make sure this is react-router-
 import { AuthContext } from "../context/AuthContext";
 import { CiStar } from "react-icons/ci";
 import {
+  Home,
   LogOutIcon,
+  Phone,
   Plus,
   PlusIcon,
+  ServerIcon,
   Settings2,
   SettingsIcon,
   Star,
@@ -13,6 +16,11 @@ import {
 import { BiPlus } from "react-icons/bi";
 import { Settings } from "lucide";
 import ThemeToggle from "./ThemeToggle";
+import { FcAbout } from "react-icons/fc";
+import { TiArrowBackOutline } from "react-icons/ti";
+import { AbsoluteCenter } from "@chakra-ui/react";
+import { TbArrowRoundaboutLeft } from "react-icons/tb";
+import { SiAboutdotme } from "react-icons/si";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -44,6 +52,7 @@ const Navbar = () => {
           }
           to="/"
         >
+          <Home className="size-4" />
           Home
         </NavLink>
       </li>
@@ -54,6 +63,7 @@ const Navbar = () => {
           }
           to="/services"
         >
+          <ServerIcon className="size-4" />
           Services
         </NavLink>
       </li>
@@ -64,6 +74,7 @@ const Navbar = () => {
           }
           to="/addService"
         >
+          <BiPlus className="text-gray-500 size-5" />
           Add Service
         </NavLink>
       </li>
@@ -74,6 +85,23 @@ const Navbar = () => {
           }
           to="/about"
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="text-gray-500"
+          >
+            <path
+              d="M12 3c-1.105 0-2 .895-2 2s.895 2 2 2 2-.895 2-2S13.105 3 12 3zM14 21h-4V11h3c.552 0 1 .448 1 1V21z"
+              opacity=".3"
+            ></path>
+            <path d="M12 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 8 12 8zM12 4c-.551 0-1 .449-1 1s.449 1 1 1 1-.449 1-1S12.551 4 12 4zM15 22H9V10h4c1.103 0 2 .897 2 2V22zM11 20h2v-8h-2V20z"></path>
+            <path d="M8 10H11V12H8zM8 20H16V22H8z"></path>
+          </svg>
           About Us
         </NavLink>
       </li>
@@ -84,6 +112,7 @@ const Navbar = () => {
           }
           to="/contact"
         >
+          <Phone className="size-4" />
           Contact
         </NavLink>
       </li>
