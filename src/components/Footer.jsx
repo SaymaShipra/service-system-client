@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 border-t border-gray-400 mt-auto pt-10">
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gray-900  text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -42,7 +42,8 @@ const Footer = () => {
       </section>
 
       <div className="px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 w-11/12 mx-auto">
+        {/* <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 w-11/12 mx-auto"> */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 w-11/12 mx-auto">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center space-x-2">
@@ -94,7 +95,7 @@ const Footer = () => {
               </li>
               <li className="text-lg">
                 <NavLink
-                  to="/aboutUs"
+                  to="/about"
                   className={({ isActive }) =>
                     isActive ? "text-white" : "text-gray-500"
                   }
@@ -116,7 +117,7 @@ const Footer = () => {
           </div>
 
           {/* Categories */}
-          <div>
+          {/* <div>
             <h3 className="text-lg text-white font-semibold mb-4">
               Popular Categories
             </h3>
@@ -162,7 +163,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div className="">
