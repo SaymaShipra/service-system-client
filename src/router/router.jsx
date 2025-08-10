@@ -11,6 +11,8 @@ import UpdateService from "../components/UpdateService";
 import PrivateRoute from "./PrivateRoute";
 import MyReviews from "../pages/MyReviews";
 import NotFound from "../pages/NotFound";
+import About from "../pages/Home/About";
+import Contact from "../pages/Home/Contact";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
             <MyServices />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/updateService/:id",

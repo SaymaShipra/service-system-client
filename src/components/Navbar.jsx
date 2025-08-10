@@ -2,6 +2,16 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router"; // Make sure this is react-router-dom
 import { AuthContext } from "../context/AuthContext";
 import { CiStar } from "react-icons/ci";
+import {
+  LogOutIcon,
+  Plus,
+  PlusIcon,
+  Settings2,
+  SettingsIcon,
+  Star,
+} from "lucide-react";
+import { BiPlus } from "react-icons/bi";
+import { Settings } from "lucide";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -54,6 +64,26 @@ const Navbar = () => {
           to="/addService"
         >
           Add Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "text-gray-500"
+          }
+          to="/about"
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : "text-gray-500"
+          }
+          to="/contact"
+        >
+          Contact
         </NavLink>
       </li>
     </>
@@ -130,21 +160,25 @@ const Navbar = () => {
               </div>
               <li>
                 <NavLink to="/addService" className="text-base">
+                  <BiPlus className="text-gray-500" />
                   Add Service
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/myServices" className="text-base">
+                  <SettingsIcon className="text-gray-500 size-4" />
                   My Services
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/myReviews" className="text-base">
+                  <Star className="text-gray-500 size-4" />
                   My Reviews
                 </NavLink>
               </li>
               <li>
-                <button onClick={handleSignOut} className="btn w-full">
+                <button onClick={handleSignOut} className="btn w-full ">
+                  <LogOutIcon className="text-gray-500 size-4" />
                   Sign Out
                 </button>
               </li>
