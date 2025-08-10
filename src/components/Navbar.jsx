@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { BiPlus } from "react-icons/bi";
 import { Settings } from "lucide";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -129,6 +130,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
+        <ThemeToggle></ThemeToggle>
         {user ? (
           <div className="dropdown dropdown-end">
             <label
