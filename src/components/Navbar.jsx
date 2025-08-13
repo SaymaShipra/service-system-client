@@ -384,7 +384,9 @@ const Navbar = () => {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
             <CiStar className="h-6 w-6 text-white" />
           </div>
-          <span className="text-2xl font-bold">ServiceHub</span>
+          <span className="text-2xl font-bold hidden md:inline">
+            ServiceHub
+          </span>
         </Link>
       </div>
 

@@ -1,66 +1,102 @@
+import React, { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router";
-import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home/Home";
-import Register from "../Register/Register";
-import SignIn from "../SignIn/SignIn";
-import Services from "../pages/Services";
-import ServiceDetails from "../pages/ServiceDetails";
-import AddService from "../pages/AddService";
-import MyServices from "../pages/MyServices";
-import UpdateService from "../components/UpdateService";
-import PrivateRoute from "./PrivateRoute";
-import MyReviews from "../pages/MyReviews";
-import NotFound from "../pages/NotFound";
-import About from "../pages/Home/About";
-import Contact from "../pages/Home/Contact";
+import Spinner from "../components/Spinner";
+
+// Layout
+const RootLayout = lazy(() => import("../layouts/RootLayout"));
+
+// Pages
+const Home = lazy(() => import("../pages/Home/Home"));
+const Register = lazy(() => import("../Register/Register"));
+const SignIn = lazy(() => import("../SignIn/SignIn"));
+const Services = lazy(() => import("../pages/Services"));
+const ServiceDetails = lazy(() => import("../pages/ServiceDetails"));
+const AddService = lazy(() => import("../pages/AddService"));
+const MyServices = lazy(() => import("../pages/MyServices"));
+const UpdateService = lazy(() => import("../components/UpdateService"));
+const MyReviews = lazy(() => import("../pages/MyReviews"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+const About = lazy(() => import("../pages/Home/About"));
+const Contact = lazy(() => import("../pages/Home/Contact"));
+const PrivateRoute = lazy(() => import("./PrivateRoute"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <RootLayout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Register />
+          </Suspense>
+        ),
       },
       {
         path: "/signin",
-        element: <SignIn />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <SignIn />
+          </Suspense>
+        ),
       },
       {
         path: "/addService",
         element: (
-          <PrivateRoute>
-            <AddService />
-          </PrivateRoute>
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <AddService />
+            </PrivateRoute>
+          </Suspense>
         ),
       },
       {
         path: "/myServices",
         element: (
-          <PrivateRoute>
-            <MyServices />
-          </PrivateRoute>
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <MyServices />
+            </PrivateRoute>
+          </Suspense>
         ),
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/updateService/:id",
         element: (
-          <PrivateRoute>
-            <UpdateService />
-          </PrivateRoute>
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <UpdateService />
+            </PrivateRoute>
+          </Suspense>
         ),
         loader: async ({ params }) =>
           fetch(
@@ -71,11 +107,23 @@ const router = createBrowserRouter([
         path: "services",
         loader: () =>
           fetch("https://service-system-server.vercel.app/services"),
-        element: <Services />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <Services />
+            </PrivateRoute>
+          </Suspense>
+        ),
       },
       {
         path: "services/:id",
-        element: <ServiceDetails />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <ServiceDetails />
+            </PrivateRoute>
+          </Suspense>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://service-system-server.vercel.app/services/${params.id}`
@@ -84,15 +132,20 @@ const router = createBrowserRouter([
       {
         path: "/myReviews",
         element: (
-          <PrivateRoute>
-            <MyReviews />
-          </PrivateRoute>
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <MyReviews />
+            </PrivateRoute>
+          </Suspense>
         ),
       },
-      // <-- Add this NotFound route LAST:
       {
         path: "*",
-        element: <NotFound />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <NotFound />
+          </Suspense>
+        ),
       },
     ],
   },

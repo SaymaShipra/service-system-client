@@ -103,9 +103,9 @@ const ServiceCard = ({ service, rating }) => {
         </p>
       </figure>
       <div className="py-5 px-4">
-        <h2 className="text-3xl font-bold pb-2">{title}</h2>
+        <h2 className="text-xl font-bold pb-2">{title}</h2>
 
-        <p className="text-gray-600 pb-1 text-lg">{truncatedDescription}</p>
+        <p className="text-gray-600 pb-1 text-base">{truncatedDescription}</p>
         {description.length > 100 && (
           <button
             onClick={() => setShowFullDesc((prev) => !prev)}
@@ -115,7 +115,7 @@ const ServiceCard = ({ service, rating }) => {
           </button>
         )}
 
-        <div className="flex justify-between pb-3 text-xl mt-3">
+        <div className="flex justify-between pb-3 text-lg mt-3">
           <h3 className="text-gray-500">{company}</h3>
           <h3 className="text-blue-500 font-bold">{price}</h3>
         </div>
@@ -126,7 +126,7 @@ const ServiceCard = ({ service, rating }) => {
             <span className="ml-1 text-gray-700">({displayRating})</span>
           </div>
           <Link to={`/services/${_id}`}>
-            <button className="btn bg-primary text-lg text-white rounded-lg">
+            <button className="btn bg-primary text-sm text-white rounded-lg">
               View Details
             </button>
           </Link>

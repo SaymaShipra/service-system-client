@@ -175,16 +175,16 @@ const Footer = () => {
                   className="text-base text-gray-500 hover:text-white transition-colors flex items-center  gap-3"
                 >
                   <HiOutlineMail className="h-5 w-5 text-blue-500" />
-                  info@servicehub.com
+                  support@servicehub.com
                 </a>
               </li>
               <div className="text-base text-gray-500 hover:text-white flex items-center gap-3 cursor-pointer">
                 <FiPhone className="h-5 w-5 text-blue-500" />
-                <span>012346548</span>
+                <span>+880 1234 567 890</span>
               </div>
               <div className="text-base text-gray-500 hover:text-white flex items-center gap-3 cursor-pointer">
                 <CiLocationOn className="h-7 w-7 text-blue-500" />
-                <span>123 Business St, Suite 100 New York, NY 10001</span>
+                <span>Dhaka, Bangladesh</span>
               </div>
               <li className="flex space-x-4 mt-4">
                 <a href="#" className="text-gray-500 hover:text-amber-500">
