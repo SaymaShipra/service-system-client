@@ -91,7 +91,7 @@ const ServiceCard = ({ service, rating }) => {
   // Limit description for preview
   const truncatedDescription =
     description.length > 100 && !showFullDesc
-      ? `${description.slice(0, 50)}...`
+      ? `${description.slice(0, 30)}...`
       : description;
 
   return (
@@ -103,7 +103,7 @@ const ServiceCard = ({ service, rating }) => {
         </p>
       </figure>
       <div className="py-5 px-4">
-        <h2 className="text-xl font-bold pb-2">{title}</h2>
+        <h2 className="text-lg font-bold pb-2">{title}</h2>
 
         <p className="text-gray-600 pb-1 text-base">{truncatedDescription}</p>
         {description.length > 100 && (
@@ -111,11 +111,11 @@ const ServiceCard = ({ service, rating }) => {
             onClick={() => setShowFullDesc((prev) => !prev)}
             className="text-primary text-sm font-semibold hover:underline"
           >
-            {showFullDesc ? "See less" : "See more"}
+            {showFullDesc ? "See less..." : "See more..."}
           </button>
         )}
 
-        <div className="flex justify-between pb-3 text-lg mt-3">
+        <div className="flex justify-between pb-3 text-base mt-3">
           <h3 className="text-gray-500">{company}</h3>
           <h3 className="text-blue-500 font-bold">{price}</h3>
         </div>
@@ -126,7 +126,7 @@ const ServiceCard = ({ service, rating }) => {
             <span className="ml-1 text-gray-700">({displayRating})</span>
           </div>
           <Link to={`/services/${_id}`}>
-            <button className="btn bg-primary text-sm text-white rounded-lg">
+            <button className="btn bg-primary text-xs text-white rounded-lg">
               View Details
             </button>
           </Link>

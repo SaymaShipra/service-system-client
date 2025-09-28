@@ -24,7 +24,7 @@ const Partners = () => {
     },
   ];
   return (
-    <div className="py-20 bg-white">
+    <div className="py-20 bg-base-100">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
@@ -32,10 +32,10 @@ const Partners = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold  mb-6">
             Meet Our Partners
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
             We collaborate with industry leaders to bring you the best services
           </p>
         </motion.div>
@@ -57,10 +57,10 @@ const Partners = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-gray-500 mb-2">
                 {partner.name}
               </h3>
-              <p className="text-gray-600 text-sm">{partner.description}</p>
+              <p className="text-gray-400 text-sm">{partner.description}</p>
             </motion.div>
           ))}
         </div>

@@ -5,7 +5,7 @@ import { Building2, MessageSquare, Users } from "lucide-react";
 
 const Stat = () => {
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-base-100">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {/* Users */}
@@ -17,10 +17,10 @@ const Stat = () => {
             className="flex flex-col items-center"
           >
             <Users className="h-12 w-12 text-blue-600 mb-4" />
-            <div className="text-4xl font-bold text-gray-800 mb-2">
+            <div className="text-4xl font-bold  mb-2">
               <CountUp end={1247} duration={2} />+
             </div>
-            <p className="text-gray-600 text-lg">Happy Users</p>
+            <p className="text-gray-400 text-lg">Happy Users</p>
           </motion.div>
 
           {/* Services */}
@@ -32,10 +32,10 @@ const Stat = () => {
             className="flex flex-col items-center"
           >
             <Building2 className="h-12 w-12 text-green-600 mb-4" />
-            <div className="text-4xl font-bold text-gray-800 mb-2">
+            <div className="text-4xl font-bold  mb-2">
               <CountUp end={356} duration={2} />+
             </div>
-            <p className="text-gray-600 text-lg">Services Listed</p>
+            <p className="text-gray-400 text-lg">Services Listed</p>
           </motion.div>
 
           {/* Reviews */}
@@ -47,10 +47,10 @@ const Stat = () => {
             className="flex flex-col items-center"
           >
             <MessageSquare className="h-12 w-12 text-purple-600 mb-4" />
-            <div className="text-4xl font-bold text-gray-800 mb-2">
+            <div className="text-4xl font-bold  mb-2">
               <CountUp end={2892} duration={2} />+
             </div>
-            <p className="text-gray-600 text-lg">Reviews Posted</p>
+            <p className="text-gray-400 text-lg">Reviews Posted</p>
           </motion.div>
         </div>
       </div>

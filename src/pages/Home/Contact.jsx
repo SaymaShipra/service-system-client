@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50 mt-20 to-white px-6 md:px-20 py-16">
+    <div className="min-h-screen bg-base-100 px-6 md:px-20 py-16 mt-20">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary">Contact Us</h1>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-4 text-base-content/70 max-w-2xl mx-auto">
           Have a question, feedback, or need support? Fill out the form or reach
           us directly — we’re here to help.
         </p>
@@ -16,32 +16,36 @@ const Contact = () => {
       {/* Contact Info + Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Contact Information */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
-          <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
+        <div className="bg-base-200 rounded-2xl shadow-lg p-8 space-y-6">
+          <h2 className="text-2xl font-semibold mb-4 text-base-content">
+            Get in Touch
+          </h2>
           <div className="flex items-center gap-4">
             <Mail className="text-primary" size={24} />
-            <p className="text-gray-700">support@servicehub.com</p>
+            <p className="text-base-content">support@servicehub.com</p>
           </div>
           <div className="flex items-center gap-4">
             <Phone className="text-primary" size={24} />
-            <p className="text-gray-700">+880 1234 567 890</p>
+            <p className="text-base-content">+880 1234 567 890</p>
           </div>
           <div className="flex items-center gap-4">
             <MapPin className="text-primary" size={24} />
-            <p className="text-gray-700">Dhaka, Bangladesh</p>
+            <p className="text-base-content">Dhaka, Bangladesh</p>
           </div>
-          <p className="text-gray-600 mt-6">
+          <p className="text-base-content/70 mt-6">
             Our support team is available{" "}
             <strong>Mon–Fri, 9:00 AM – 6:00 PM</strong>.
           </p>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <h2 className="text-2xl font-semibold mb-6">Send a Message</h2>
+        <div className="bg-base-200 rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-semibold mb-6 text-base-content">
+            Send a Message
+          </h2>
           <form className="space-y-5">
             <div>
-              <label className="block mb-1 text-gray-700">Name</label>
+              <label className="block mb-1 text-base-content">Name</label>
               <input
                 type="text"
                 placeholder="Your Name"
@@ -50,7 +54,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block mb-1 text-gray-700">Email</label>
+              <label className="block mb-1 text-base-content">Email</label>
               <input
                 type="email"
                 placeholder="Your Email"
@@ -59,7 +63,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label className="block mb-1 text-gray-700">Message</label>
+              <label className="block mb-1 text-base-content">Message</label>
               <textarea
                 placeholder="Write your message..."
                 className="textarea textarea-bordered w-full"

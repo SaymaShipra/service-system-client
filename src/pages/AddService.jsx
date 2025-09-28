@@ -47,68 +47,74 @@ const AddService = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8">
+    <div className="min-h-screen bg-base-200 py-8">
+      {/* Header */}
       <div className="text-center pt-10 space-y-2">
-        <h1 className="text-4xl font-bold">Add New Service</h1>
-        <p className="text-gray-600 text-xl">
+        <h1 className="text-4xl font-bold text-base-content">
+          Add New Service
+        </h1>
+        <p className="text-base-content/70 text-xl">
           Share your amazing service with our community
         </p>
       </div>
 
+      {/* Form */}
       <form
         onSubmit={handleAddService}
         className="mt-10 w-10/12 mx-auto bg-base-100 p-10 rounded-lg shadow"
       >
         <div>
-          <h1 className="text-2xl font-semibold">Service Information</h1>
-          <p className="text-base text-gray-500 pb-10">
+          <h1 className="text-2xl font-semibold text-base-content">
+            Service Information
+          </h1>
+          <p className="text-base text-base-content/70 pb-10">
             Fill in the details about your service
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="label text-black">Service Title</label>
+            <label className="label text-base-content">Service Title</label>
             <input
               type="text"
               name="title"
-              className="input w-full"
+              className="input input-bordered w-full"
               placeholder="Enter service title"
               required
             />
           </div>
           <div className="space-y-2">
-            <label className="label text-black">Service Image URL</label>
+            <label className="label text-base-content">Service Image URL</label>
             <input
               type="text"
               name="image"
-              className="input w-full"
+              className="input input-bordered w-full"
               placeholder="https://example.com/image.jpg"
             />
           </div>
           <div className="space-y-2">
-            <label className="label text-black">Company Name</label>
+            <label className="label text-base-content">Company Name</label>
             <input
               type="text"
               name="company"
-              className="input w-full"
+              className="input input-bordered w-full"
               placeholder="Enter company name"
             />
           </div>
           <div className="space-y-2">
-            <label className="label text-black">Website</label>
+            <label className="label text-base-content">Website</label>
             <input
               type="text"
               name="website"
-              className="input w-full"
+              className="input input-bordered w-full"
               placeholder="https://yourwebsite.com"
             />
           </div>
           <div className="space-y-2 grid">
-            <label className="label text-black">Service Category</label>
+            <label className="label text-base-content">Service Category</label>
             <select
               defaultValue="Select a category"
-              className="select"
+              className="select select-bordered"
               name="category"
               required
             >
@@ -124,12 +130,12 @@ const AddService = () => {
               <option>Others</option>
             </select>
           </div>
-          <div className="space-y-2 ">
-            <label className="label text-black">Price</label>
+          <div className="space-y-2">
+            <label className="label text-base-content">Price</label>
             <input
               type="text"
               name="price"
-              className="input w-full"
+              className="input input-bordered w-full"
               placeholder="$0.00"
               required
             />
@@ -138,18 +144,20 @@ const AddService = () => {
 
         <div className="space-y-6 mt-6">
           <div>
-            <label className="label text-black pb-2">Description</label>
+            <label className="label text-base-content pb-2">Description</label>
             <textarea
               placeholder="Describe your service in detail..."
               name="description"
-              className="textarea textarea-lg w-full h-28 text-base"
+              className="textarea textarea-bordered textarea-lg w-full h-28 text-base"
               required
             ></textarea>
           </div>
 
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4 text-lg">
-            <label className="label">Additional Information</label>
-            <div className="flex justify-between">
+            <label className="label text-base-content">
+              Additional Information
+            </label>
+            <div className="flex justify-between text-base-content">
               <h3>
                 Added Date: <span className="font-medium">{currentDate}</span>
               </h3>
@@ -165,7 +173,7 @@ const AddService = () => {
 
         <input
           type="submit"
-          className="btn mt-8 w-full text-white bg-blue-500 text-lg"
+          className="btn mt-8 w-full btn-primary text-lg"
           value="Add Service"
         />
       </form>
