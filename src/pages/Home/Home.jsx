@@ -31,6 +31,7 @@ import Choose from "../../components/Choose";
 import Partners from "../../components/Partners";
 import Service from "../Services";
 import FeaturedServices from "../../components/FeaturedServices";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   return (
@@ -40,6 +41,7 @@ const Home = () => {
       {/* <Service services={services} loading={loading} /> */}
       <Stat />
       <Partners />
+
       <Choose />
     </div>
   );

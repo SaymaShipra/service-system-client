@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Spinner from "../components/Spinner";
 import DashboardLayout from "../Dashboard/DashboardLayout";
 import Overview from "../Dashboard/Overview";
+import Settings from "../pages/Settings";
 
 // Layout
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
@@ -90,6 +91,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Spinner />}>
             <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/settings",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Settings />
           </Suspense>
         ),
       },

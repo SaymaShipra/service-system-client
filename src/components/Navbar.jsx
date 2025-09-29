@@ -376,7 +376,7 @@ import { Home, ServerIcon, Star, LogOutIcon } from "lucide-react";
 import { BiPlus } from "react-icons/bi";
 import ThemeToggle from "./ThemeToggle";
 import { RxDashboard } from "react-icons/rx";
-import { FcAbout } from "react-icons/fc";
+import { FcAbout, FcSettings } from "react-icons/fc";
 import { FaExclamation } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 
@@ -558,6 +558,18 @@ const Navbar = () => {
                     Role: {userRole}
                   </p>
                 </div>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-blue-500 font-semibold "
+                        : "text-gray-500 "
+                    }
+                    to="/settings"
+                  >
+                    <FcSettings /> Settings
+                  </NavLink>
+                </li>
                 <li>
                   <button onClick={handleSignOut} className="btn w-full">
                     <LogOutIcon className="w-5 h-5 mr-1" />
