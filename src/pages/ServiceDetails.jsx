@@ -11,9 +11,8 @@ const ServiceDetails = () => {
     image,
     company,
     website,
-
     price,
-  } = useLoaderData(); // Make sure your loader returns website and email
+  } = useLoaderData(); // Make sure loader provides these
 
   const { user } = useContext(AuthContext);
 
@@ -21,16 +20,12 @@ const ServiceDetails = () => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
 
-  const currentDate = new Date().toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-  // Load reviews
+  // Load reviews for this service
   useEffect(() => {
     fetch(`https://service-system-server.vercel.app/reviews/${serviceId}`)
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => setReviews(data))
+      .catch((err) => console.error(err));
   }, [serviceId]);
 
   const handleReviewSubmit = async (e) => {
@@ -45,30 +40,38 @@ const ServiceDetails = () => {
       initial: user?.displayName?.charAt(0).toUpperCase() || "U",
       rating,
       comment,
-      date: new Date().toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      }),
+      date: new Date().toISOString(), // store ISO date for consistency
+      userEmail: user?.email || null,
     };
 
-    const res = await fetch(
-      "https://service-system-server.vercel.app/reviews",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newReview),
-      }
-    );
+    try {
+      const res = await fetch(
+        "https://service-system-server.vercel.app/reviews",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newReview),
+        }
+      );
+      const result = await res.json();
 
-    const result = await res.json();
-    if (result.insertedId || result.acknowledged) {
-      setReviews([newReview, ...reviews]);
-      form.reset();
-      setRating(0);
+      if (result.insertedId || result.acknowledged) {
+        setReviews([newReview, ...reviews]);
+        form.reset();
+        setRating(0);
+      }
+    } catch (error) {
+      console.error("Failed to submit review:", error);
     }
+  };
+
+  // Format date for display
+  const formatDate = (isoDate) => {
+    return new Date(isoDate).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
   };
 
   return (
@@ -76,9 +79,9 @@ const ServiceDetails = () => {
       {/* Service Info */}
       <div className="card bg-base-100 shadow-md w-full">
         <img
-          className="w-full h-96 rounded-lg shadow-lg object-cover"
           src={image}
           alt={title}
+          className="w-full h-96 rounded-lg object-cover shadow-lg"
         />
         <div className="flex justify-between p-5 pt-7 flex-col md:flex-row gap-5">
           <div>
@@ -98,14 +101,11 @@ const ServiceDetails = () => {
                   </a>
                 </p>
               )}
-              <h3 className=" font-bold pt-2">
+              <h3 className="font-bold pt-2">
                 Provider Email:{" "}
                 <span className="font-medium text-gray-600">
                   {user?.email || "anonymous@example.com"}
                 </span>
-              </h3>
-              <h3>
-                Added Date: <span className="font-medium">{currentDate}</span>
               </h3>
             </div>
           </div>
@@ -118,7 +118,7 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      {/* Review Form and List */}
+      {/* Review Form & List */}
       <div className="flex flex-col md:flex-row justify-between gap-10 pt-10">
         {/* Review Form */}
         <form
@@ -178,7 +178,6 @@ const ServiceDetails = () => {
           <h1 className="text-3xl font-bold mb-4">
             Reviews ({reviews.length})
           </h1>
-
           {reviews.map((rev, index) => (
             <div
               key={index}
@@ -196,11 +195,12 @@ const ServiceDetails = () => {
                     <span>{rev.initial}</span>
                   )}
                 </div>
-
                 <div className="w-full">
                   <div className="flex justify-between items-center">
                     <h1 className="font-bold">{rev.name}</h1>
-                    <p className="text-sm text-gray-400">{rev.date}</p>
+                    <p className="text-sm text-gray-400">
+                      {formatDate(rev.date)}
+                    </p>
                   </div>
                   <div className="flex gap-1 text-yellow-500 text-sm pb-1">
                     {[...Array(rev.rating)].map((_, i) => (

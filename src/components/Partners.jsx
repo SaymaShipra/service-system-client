@@ -32,9 +32,7 @@ const Partners = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold  mb-6">
-            Meet Our Partners
-          </h2>
+          <h2 className="text-3xl font-semibold pb-4">Meet Our Partners</h2>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
             We collaborate with industry leaders to bring you the best services
           </p>

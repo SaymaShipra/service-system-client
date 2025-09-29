@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router";
 import Spinner from "../components/Spinner";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+import Overview from "../Dashboard/Overview";
 
 // Layout
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
@@ -54,7 +56,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/addService",
+        path: "/dashboard/addService",
         element: (
           <Suspense fallback={<Spinner />}>
             <PrivateRoute>
@@ -64,11 +66,21 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myServices",
+        path: "/dashboard/myServices",
         element: (
           <Suspense fallback={<Spinner />}>
             <PrivateRoute>
               <MyServices />
+            </PrivateRoute>
+          </Suspense>
+        ),
+      },
+      {
+        path: "/dashboard/overview",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <Overview />
             </PrivateRoute>
           </Suspense>
         ),
@@ -130,7 +142,7 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/myReviews",
+        path: "/dashboard/myReviews",
         element: (
           <Suspense fallback={<Spinner />}>
             <PrivateRoute>
@@ -139,6 +151,17 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "/dashboard/*",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <PrivateRoute>
+              <DashboardLayout />
+            </PrivateRoute>
+          </Suspense>
+        ),
+      },
+
       {
         path: "*",
         element: (
